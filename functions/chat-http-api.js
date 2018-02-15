@@ -38,15 +38,6 @@ const app = express();
 
  * https://firebase.google.com/docs/reference/rest/auth/#section-sign-in-email-password
  * 
-curl 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=<API_KEY>' \
--H 'Content-Type: application/json' \
---data-binary '{"email":"<USER_EMAIL>","password":"<USER_PASSWORD>","returnSecureToken":true}'
- 
-Example:
-
-curl 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=[REDACTED_GOOGLE_KEY]' \
- -H 'Content-Type: application/json' \
- -d '{"email":"redacted@example.invalid","password":"123456","returnSecureToken":true}'
 
 */
 
@@ -82,22 +73,10 @@ app.use(authenticate);
 
 /**
  * Send a message.
- * Example request using request body with cURL:
- *  curl -X POST \
-      -H 'Content-Type: application/json' \
-      -H "Authorization: Bearer <Firebase ID Token>" \
-       -d '{"sender_fullname": "<FULLNAME>", "recipient_id": "<ID>", "recipient_fullname":"<FULLNAME>","text":"helo from API", "app_id":"<APP_ID>"}' \
-      https://us-central1-<project-id>.cloudfunctions.net/api/messages
-
-   curl -X POST \
-       -H 'Content-Type: application/json' \
-       -H 'Authorization: Bearer [REDACTED_JWT]' \
-       -d '{"sender_fullname": "Andrea Leo", "recipient_id": "U4HL3GWjBsd8zLX4Vva0s7W2FN92", "recipient_fullname":"Andrea Leo","text":"helo from API", "app_id":"tilechat"}' \
-       https://us-central1-chat-v2-dev.cloudfunctions.net/api/messages
  *
  * This endpoint supports CORS.
  */
-// [START trigger]
+
 app.post('/messages', (req, res) => {
   console.log('sendDirectMessage');
 
@@ -163,19 +142,7 @@ app.post('/messages', (req, res) => {
 
     /**
  * Create a group
- * Example request using request body with cURL:
-  
-  curl -X POST \
-      -H 'Content-Type: application/json' \
-      -H "Authorization: Bearer <Firebase ID Token>" \
-      -d '{"group_name": "group_name", "app_id":"<APP_ID>"}' \
-      https://us-central1-<project-id>.cloudfunctions.net/api/groups
-
-   curl -v -X POST \
-       -H 'Content-Type: application/json' \
-       -H 'Authorization: Bearer [REDACTED_JWT]' \
-    -d '{"group_name": "TestGroup21", "group_members": {"y4QN01LIgGPGnoV6ql07hwPAQg23":1}, "app_id":"tilechat"}' https://us-central1-chat-v2-dev.cloudfunctions.net/api/groups
- *
+ 
  * This endpoint supports CORS.
  */
 // [START trigger]
@@ -237,19 +204,7 @@ app.post('/groups', (req, res) => {
 
     /**
  * Join a group
- * Example request using request body with cURL:
-    curl -X POST \
-       -H 'Content-Type: application/json' \
-       -H "Authorization: Bearer <Firebase ID Token>" \
-       -d '{"member_id": "<member_id>", "app_id": "<app_id>"}' 
-       https://us-central1-<project-id>.cloudfunctions.net/api/groups/<GROUP_ID>/members
-
-    curl -X POST \
-       -H 'Content-Type: application/json' \
-       -H 'Authorization: Bearer [REDACTED_JWT]' \
-        -d '{"member_id": "81gLZhYmpTZM0GGuUI9ovD7RaCZ2", "app_id": "tilechat"}' \
-        https://us-central1-chat-v2-dev.cloudfunctions.net/api/groups/-L5KLYXVUzMWj4Lbtu7F/members
-
+ 
  *
  * This endpoint supports CORS.
  */
@@ -302,19 +257,7 @@ app.post('/groups/:group_id/members', (req, res) => {
 
     /**
  * Leave a group
- * Example request using request body with cURL:
-    curl  -X DELETE \
-       -H 'Content-Type: application/json' \
-       -H "Authorization: Bearer <Firebase ID Token>" \
-       -d '{"app_id": "<app_id>"}' 
-       https://us-central1-<project-id>.cloudfunctions.net/api/groups/<GROUP_ID>/members/<MEMBERID>
-
-    curl -X DELETE \
-      -H 'Content-Type: application/json' \
-       -H 'Authorization: Bearer [REDACTED_JWT]' \
-        -d '{"app_id": "tilechat"}' \
-        https://us-central1-chat-v2-dev.cloudfunctions.net/api/groups/-L5KLYXVUzMWj4Lbtu7F/members/81gLZhYmpTZM0GGuUI9ovD7RaCZ2
-
+ * 
  *
  * This endpoint supports CORS.
  */
