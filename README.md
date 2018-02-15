@@ -104,7 +104,7 @@ Example:
    curl -v -X POST \
        -H 'Content-Type: application/json' \
        -H 'Authorization: Bearer [REDACTED_JWT]' \
-    -d '{"group_name": "TestGroup1", "group_members": {"y4QN01LIgGPGnoV6ql07hwPAQg23":1}, "app_id":"tilechat"}' https://us-central1-chat-v2-dev.cloudfunctions.net/api/groups
+       -d '{"group_name": "TestGroup1", "group_members": {"y4QN01LIgGPGnoV6ql07hwPAQg23":1}, "app_id":"tilechat"}' https://us-central1-chat-v2-dev.cloudfunctions.net/api/groups
 ```
 
 
@@ -124,7 +124,7 @@ Example:
     curl -X POST \
        -H 'Content-Type: application/json' \
        -H 'Authorization: Bearer [REDACTED_JWT]' \
-        -d '{"member_id": "81gLZhYmpTZM0GGuUI9ovD7RaCZ2", "app_id": "tilechat"}' \
+       -d '{"member_id": "81gLZhYmpTZM0GGuUI9ovD7RaCZ2", "app_id": "tilechat"}' \
         https://us-central1-chat-v2-dev.cloudfunctions.net/api/groups/-L5KLYXVUzMWj4Lbtu7F/members
 ```
 
@@ -144,6 +144,6 @@ Example:
     curl -X DELETE \
       -H 'Content-Type: application/json' \
        -H 'Authorization: Bearer [REDACTED_JWT]' \
-        -d '{"app_id": "tilechat"}' \
+       -d '{"app_id": "tilechat"}' \
         https://us-central1-chat-v2-dev.cloudfunctions.net/api/groups/-L5KLYXVUzMWj4Lbtu7F/members/81gLZhYmpTZM0GGuUI9ovD7RaCZ2
 ```
