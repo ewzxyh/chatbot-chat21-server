@@ -73,8 +73,8 @@ More info here : https://firebase.google.com/docs/reference/rest/auth/#section-s
   curl -X POST \
       -H 'Content-Type: application/json' \
       -H "Authorization: Bearer <Firebase ID Token>" \
-       -d '{"sender_fullname": "<FULLNAME>", "recipient_id": "<ID>", "recipient_fullname":"<FULLNAME>","text":"helo from API", "app_id":"<APP_ID>"}' \
-      https://us-central1-<project-id>.cloudfunctions.net/api/messages
+       -d '{"sender_fullname": "<FULLNAME>", "recipient_id": "<ID>", "recipient_fullname":"<FULLNAME>","text":"helo from API"}' \
+      https://us-central1-<project-id>.cloudfunctions.net/api/<APP_ID>/messages
 ```
 
 Example: 
@@ -82,8 +82,8 @@ Example:
    curl -X POST \
        -H 'Content-Type: application/json' \
        -H 'Authorization: Bearer [REDACTED_JWT]' \
-       -d '{"sender_fullname": "Andrea Leo", "recipient_id": "U4HL3GWjBsd8zLX4Vva0s7W2FN92", "recipient_fullname":"Andrea Leo","text":"hello from API", "app_id":"tilechat"}' \
-       https://us-central1-chat-v2-dev.cloudfunctions.net/api/messages
+       -d '{"sender_fullname": "Andrea Leo", "recipient_id": "U4HL3GWjBsd8zLX4Vva0s7W2FN92", "recipient_fullname":"Andrea Leo","text":"hello from API"}' \
+       https://us-central1-chat-v2-dev.cloudfunctions.net/api/tilechat/messages
 ```
 
 
@@ -95,7 +95,7 @@ Example:
       -H 'Content-Type: application/json' \
       -H "Authorization: Bearer <Firebase ID Token>" \
       -d '{"group_name": "group_name", "app_id":"<APP_ID>"}' \
-      https://us-central1-<project-id>.cloudfunctions.net/api/groups
+      https://us-central1-<project-id>.cloudfunctions.net/api/<APP_ID>/groups
 ```
 
 Example:
@@ -104,7 +104,7 @@ Example:
    curl -v -X POST \
        -H 'Content-Type: application/json' \
        -H 'Authorization: Bearer [REDACTED_JWT]' \
-       -d '{"group_name": "TestGroup1", "group_members": {"y4QN01LIgGPGnoV6ql07hwPAQg23":1}, "app_id":"tilechat"}' https://us-central1-chat-v2-dev.cloudfunctions.net/api/groups
+       -d '{"group_name": "TestGroup1", "group_members": {"y4QN01LIgGPGnoV6ql07hwPAQg23":1}}' https://us-central1-chat-v2-dev.cloudfunctions.net/api/tilechat/groups
 ```
 
 
@@ -115,7 +115,7 @@ Example:
        -H 'Content-Type: application/json' \
        -H "Authorization: Bearer <Firebase ID Token>" \
        -d '{"member_id": "<member_id>", "app_id": "<app_id>"}' 
-       https://us-central1-<project-id>.cloudfunctions.net/api/groups/<GROUP_ID>/members
+       https://us-central1-<project-id>.cloudfunctions.net/api/<APP_ID>/groups/<GROUP_ID>/members
 ```
 
 Example:
@@ -124,8 +124,8 @@ Example:
     curl -X POST \
        -H 'Content-Type: application/json' \
        -H 'Authorization: Bearer [REDACTED_JWT]' \
-       -d '{"member_id": "81gLZhYmpTZM0GGuUI9ovD7RaCZ2", "app_id": "tilechat"}' \
-        https://us-central1-chat-v2-dev.cloudfunctions.net/api/groups/-L5KLYXVUzMWj4Lbtu7F/members
+       -d '{"member_id": "81gLZhYmpTZM0GGuUI9ovD7RaCZ2"}' \
+        https://us-central1-chat-v2-dev.cloudfunctions.net/api/tilechat/groups/-L5hnLkBGQoW05ax9ehg/members
 ```
 
 ## Leave a Group
@@ -134,8 +134,7 @@ Example:
     curl  -X DELETE \
        -H 'Content-Type: application/json' \
        -H "Authorization: Bearer <Firebase ID Token>" \
-       -d '{"app_id": "<app_id>"}' 
-       https://us-central1-<project-id>.cloudfunctions.net/api/groups/<GROUP_ID>/members/<MEMBERID>
+       https://us-central1-<project-id>.cloudfunctions.net/api/<APP_ID>/groups/<GROUP_ID>/members/<MEMBERID>
 ```
 
 Example:
@@ -144,6 +143,5 @@ Example:
     curl -X DELETE \
       -H 'Content-Type: application/json' \
        -H 'Authorization: Bearer [REDACTED_JWT]' \
-       -d '{"app_id": "tilechat"}' \
-        https://us-central1-chat-v2-dev.cloudfunctions.net/api/groups/-L5KLYXVUzMWj4Lbtu7F/members/81gLZhYmpTZM0GGuUI9ovD7RaCZ2
+        https://us-central1-chat-v2-dev.cloudfunctions.net/api/tilechat/groups/-L5hnLkBGQoW05ax9ehg/members/81gLZhYmpTZM0GGuUI9ovD7RaCZ2
 ```
