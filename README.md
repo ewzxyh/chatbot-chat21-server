@@ -114,7 +114,7 @@ Example:
     curl -X POST \
        -H 'Content-Type: application/json' \
        -H "Authorization: Bearer <Firebase ID Token>" \
-       -d '{"member_id": "<member_id>", "app_id": "<app_id>"}' 
+       -d '{"member_id": "<member_id>"}' \
        https://us-central1-<project-id>.cloudfunctions.net/api/<APP_ID>/groups/<GROUP_ID>/members
 ```
 
@@ -144,4 +144,58 @@ Example:
       -H 'Content-Type: application/json' \
        -H 'Authorization: Bearer [REDACTED_JWT]' \
         https://us-central1-chat-v2-dev.cloudfunctions.net/api/tilechat/groups/-L5hnLkBGQoW05ax9ehg/members/81gLZhYmpTZM0GGuUI9ovD7RaCZ2
+```
+
+
+ curl -X POST \
+       -H 'Content-Type: application/json' \
+       -H 'Authorization: Bearer J4U4z23lwf4xQEWE15Ok4cVG5MCQDZoalMjCA9Q2' \
+       -d '{"sender_fullname": "Andrea Leo", "recipient_id": "U4HL3GWjBsd8zLX4Vva0s7W2FN92", "recipient_fullname":"Andrea Leo","text":"hello from API"}' \
+       https://us-central1-chat-v2-dev.cloudfunctions.net/api/tilechat/messages
+
+
+
+
+
+## Set Group members
+
+```
+    curl -X PUT \
+       -H 'Content-Type: application/json' \
+       -H "Authorization: Bearer <Firebase ID Token>" \
+       -d '{"members": {"<member_id1>":1},{"<member_id2>":1}}' \
+       https://us-central1-<project-id>.cloudfunctions.net/api/<APP_ID>/groups/<GROUP_ID>/members
+```
+
+Example:
+
+```
+    curl -X PUT \
+       -H 'Content-Type: application/json' \
+       -H 'Authorization: Bearer [REDACTED_JWT]' \
+       -d '{"members": {"system":1}}' \
+        https://us-central1-chat-v2-dev.cloudfunctions.net/api/tilechat/groups/support-group-L5xro2P81zHs7YA7-DX/members
+```
+
+
+
+
+# REST API for Support
+
+## Close Support group
+
+```
+    curl -X PUT \
+       -H 'Content-Type: application/json' \
+       -H "Authorization: Bearer <Firebase ID Token>" \
+       https://us-central1-<project-id>.cloudfunctions.net/supportapi/<APP_ID>/groups/<GROUP_ID>
+```
+
+Example:
+
+```
+    curl -X PUT \
+       -H 'Content-Type: application/json' \
+       -H 'Authorization: Bearer [REDACTED_JWT]' \
+        https://us-central1-chat-v2-dev.cloudfunctions.net/supportapi/tilechat/groups/support-group-L5xro2P81zHs7YA7-DX/
 ```
