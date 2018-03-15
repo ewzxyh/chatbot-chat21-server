@@ -29,6 +29,8 @@ npm install
 ## Setup Options
 * Enable Support features with Google Cloud environment variables with: ```firebase functions:config:set support.enabled=true```
 * Enable mail notification wiht: ```firebase functions:config:set email.enabled=true```
+* Disable the option "Automatically join the General Group on signup" with ```firebase functions:config:set group.general.autojoin=false```
+
 
 
 # Test locally
@@ -203,3 +205,9 @@ Example:
        -H 'Authorization: Bearer [REDACTED_JWT]' \
         https://us-central1-chat-v2-dev.cloudfunctions.net/supportapi/tilechat/groups/support-group-L5xro2P81zHs7YA7-DX/
 ```
+
+
+# BOT Setup
+* Create a bot user with the mobile app or web app. Ex: email:redacted@example.invalid, firstname: Bot, lastname: Chat21,etc.
+* Retrieve the bot user id (<BOT_UID>) from the profile tab of the mobile app or from firebase autentication tab
+* Set the bot user id <BOT_UID> parameter with ```firebase functions:config:set bot.uid=<BOT_UID>```
