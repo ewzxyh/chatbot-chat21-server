@@ -527,17 +527,16 @@ exports.sendInfoMessageOnGroupCreation = functions.database.ref('/apps/{app_id}/
 
 
 
-    exports.saveMessagesToNodeJs = functions.database.ref('/apps/{app_id}/users/{sender_id}/messages/{recipient_id}/{message_id}').onCreate(event => {
+    exports.saveMessagesToNodeJs = functions.database.ref('/apps/{app_id}/messages/{recipient_id}/{message_id}').onCreate(event => {
         const message_id = event.params.message_id;
-        const sender_id = event.params.sender_id; 
         const recipient_id = event.params.recipient_id;
-        const app_id = event.params.app_id;;
-        console.log("sender_id: "+ sender_id + ", recipient_id : " + recipient_id + ", app_id: " + app_id + ", message_id: " + message_id);
+        const app_id = event.params.app_id;
+        // DEBUG console.log("recipient_id : " + recipient_id + ", app_id: " + app_id + ", message_id: " + message_id);
         
         const message = event.data.current.val();
-        console.log('message ' + JSON.stringify(message));
+        // DEBUG console.log('message ' + JSON.stringify(message));
     
-        console.log("message.status : " + message.status);     
+        // DEBUG console.log("message.status : " + message.status);     
     
         if (message.status != chatApi.CHAT_MESSAGE_STATUS.DELIVERED){
             return 0;
@@ -554,7 +553,8 @@ exports.sendInfoMessageOnGroupCreation = functions.database.ref('/apps/{app_id}/
             uri: "http://api.chat21.org/"+app_id+"/messages",
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'JWT [REDACTED_JWT]'
+                // 'Authorization': 'JWT [REDACTED_JWT]'
+                'Authorization': 'Basic YWRtaW5AZjIxLml0OmFkbWluZjIxLA=='
             },
             method: 'POST',
             json: true,
