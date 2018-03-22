@@ -217,6 +217,24 @@ Example:
 
 # REST API for Support
 
+## Create support request
+
+```
+  curl -X POST \
+      -H 'Content-Type: application/json' \
+      -H "Authorization: Bearer <Firebase ID Token>" \
+       -d '{"sender_fullname": "<FULLNAME>", "request_id": "<ID>", "recipient_fullname":"<FULLNAME>","text":"helo from API"}' \
+      https://us-central1-<project-id>.cloudfunctions.net/supportapi/<APP_ID>/requests
+```
+
+Example: 
+```
+   curl -X POST \
+       -H 'Content-Type: application/json' \
+       -d '{"sender_fullname": "Andrea Leo", "request_id": "redacted@example.invalid-subject", "recipient_fullname":"Andrea Leo","text":"hello from API"}' \
+       'https://us-central1-chat-v2-dev.cloudfunctions.net/supportapi/tilechat/requests?token=[REDACTED_TOKEN],'
+```
+
 ## Close Support group
 
 ```
