@@ -231,7 +231,7 @@ Example:
 ```
    curl -X POST \
        -H 'Content-Type: application/json' \
-       -d '{"sender_fullname": "Andrea Leo", "request_id": "redacted@example.invalid-subject", "recipient_fullname":"Andrea Leo","text":"hello from API"}' \
+       -d '{"sender_fullname": "Andrea Leo", "request_id": "redacted@example.invalid-Re: subject", "recipient_fullname":"Andrea Leo","text":"hello from API","projectid":"5ab0f32757066e0014bfd718"}' \
        'https://us-central1-chat-v2-dev.cloudfunctions.net/supportapi/tilechat/requests?token=[REDACTED_TOKEN],'
 ```
 
