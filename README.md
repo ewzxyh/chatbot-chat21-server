@@ -225,6 +225,28 @@ Example:
 
 ```
 
+## Create a Contact
+
+```
+
+  curl -X POST \
+      -H 'Content-Type: application/json' \
+      -H "Authorization: Bearer <Firebase ID Token>" \
+      -d '{"firstname": "firstname", "lastname": "lastname","email": "email"}' \
+      https://us-central1-<project-id>.cloudfunctions.net/api/<APP_ID>/contacts
+```
+
+Example:
+
+```
+   curl -v -X POST \
+       -H 'Content-Type: application/json' \
+       -H 'Authorization: Bearer [REDACTED_JWT]' \
+        -d '{"firstname": "firstname", "lastname": "lastname","email": "email"}' \
+    https://us-central1-chat-v2-dev.cloudfunctions.net/api/tilechat/contacts
+```
+
+
 ## Webhook
 
 ```
