@@ -21,18 +21,6 @@ const nodemailer = require('nodemailer');
 //get existing properties with: firebase functions:config:get
 var moment = require('moment');
 
-if (functions.config().email && functions.config().email.enabled) {
-     //gmailEmail = encodeURIComponent(functions.config().email.email);
-     //gmailPassword = REDACTED_SECRET(functions.config().gmail.password);
-    //const mailTransport = nodemailer.createTransport(`smtps://${gmailEmail}:${gmailPassword}@smtp.gmail.com`);
-    // ################ END EMAIL ################ //  
-
-    //const mailTransport = nodemailer.createTransport(`smtp://redacted@example.invalid:redacted@example.invalid`);
-    console.log('enabling mailTrasport with ',functions.config().email.endpoint);
-    const mailTransport = nodemailer.createTransport(functions.config().email.endpoint);
-
-}
-
 
 
 exports.sendEmailNotification = functions.database.ref('/apps/{app_id}/users/{sender_id}/messages/{recipient_id}/{message_id}').onCreate(event => {
@@ -277,10 +265,26 @@ function sendNewMessageNotificationEmail(sender_fullname, recipient, recipient_f
             </html>
             ` // html body
         };
-  
-        return mailTransport.sendMail(mailOptions).then(() => {
+
+        if (functions.config().email && functions.config().email.enabled) {
+          //gmailEmail = encodeURIComponent(functions.config().email.email);
+          //gmailPassword = REDACTED_SECRET(functions.config().gmail.password);
+         //const mailTransport = nodemailer.createTransport(`smtps://${gmailEmail}:${gmailPassword}@smtp.gmail.com`);
+         // ################ END EMAIL ################ //  
+     
+         //const mailTransport = nodemailer.createTransport(`smtp://redacted@example.invalid:redacted@example.invalid`);
+         console.log('enabling mailTrasport with ',functions.config().email.endpoint);
+         const mailTransport = nodemailer.createTransport(functions.config().email.endpoint);
+     
+         return mailTransport.sendMail(mailOptions).then(() => {
           console.log('New email sent to:' +  mailingList);
-        });
+          });
+        }else {
+          console.log('Email not enabled');
+
+        }
+  
+       
     });
   }
 
