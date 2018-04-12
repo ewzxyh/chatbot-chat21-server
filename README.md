@@ -31,9 +31,12 @@ npm install
 ## Setup Options
 Use with Google Cloud environment to configure the platform.
 * Enable Support features with: ```firebase functions:config:set support.enabled=true```
-* Enable email notification with: ```firebase functions:config:set email.enabled=true```
-* Disable the option "Automatically join the General Group on signup" with ```firebase functions:config:set group.general.autojoin=false```
 
+* Enable email notification with: ```firebase functions:config:set email.enabled=true```
+    Set STMP URI endpoint with : ```firebase functions:config:set email.endpoint=smtp://<Username>:<password>@smtp.mailgun.org``` (Unset with ```firebase functions:config:unset email.endpoint```)
+    Set Gmail account with  : ```firebase functions:config:set email.gmail.user=redacted@example.invalid``` and ```firebase functions:config:set email.gmail.password=ft21gmail```
+
+* Disable the option "Automatically join the General Group on signup" with ```firebase functions:config:set group.general.autojoin=false```
 
 
 # Test locally
@@ -222,6 +225,28 @@ Example:
 
 
 ```
+
+## Create a Contact
+
+```
+
+  curl -X POST \
+      -H 'Content-Type: application/json' \
+      -H "Authorization: Bearer <Firebase ID Token>" \
+      -d '{"firstname": "firstname", "lastname": "lastname","email": "email"}' \
+      https://us-central1-<project-id>.cloudfunctions.net/api/<APP_ID>/contacts
+```
+
+Example:
+
+```
+   curl -v -X POST \
+       -H 'Content-Type: application/json' \
+       -H 'Authorization: Bearer [REDACTED_JWT]' \
+        -d '{"firstname": "firstname", "lastname": "lastname","email": "email"}' \
+    https://us-central1-chat-v2-dev.cloudfunctions.net/api/tilechat/contacts
+```
+
 
 ## Webhook
 
