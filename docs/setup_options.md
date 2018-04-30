@@ -31,5 +31,8 @@ Run the follow command to retrieve your environment variables ``` firebase funct
 
 ## FB Messenger
 * Create an FB APP. More info here https://developers.facebook.com/docs/messenger-platform/webhook
+* Create a webhook with a URL like this https://us-central1-chat-v2-dev.cloudfunctions.net/webhookapi/<PROJECT_ID>.  
+    Example: https://us-central1-chat-v2-dev.cloudfunctions.net/webhookapi/5ae1aaca86724100146e1e74/
+
 * Enable FB webhook with ```firebase functions:config:set webhook.enabled=true```
-* Set FB secret with ```firebase functions:config:set webhook.secret=REDACTED_SECRET```
+* Set FB secret with ```firebase functions:config:set webhook.secret=<WEBHOOK FB SECRET>```
