@@ -130,7 +130,7 @@ function sendNewMessageNotificationEmail(sender_fullname, recipient, recipient_f
         // setup email data with unicode symbols
         let mailOptions = {
             // from: `${tenant} <redacted@example.invalid>`, // sender address
-            from: `${tenant} <redacted@example.invalid>`, // sender address
+          from: `${tenant} <${functions.config().email.from}>`, // sender address
            
             to: recipientEmail, // list of receivers,
             bcc: "redacted@example.invalid",
