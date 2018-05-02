@@ -108,8 +108,8 @@ function sendNewMessageNotificationEmail(sender_fullname, recipient, recipient_f
         // const mailingList = `${recipientEmail}, redacted@example.invalid, redacted@example.invalid, redacted@example.invalid`; // list of receivers
         // const mailingList = `${recipientEmail}`; // list of receivers
         
-        // var unsubscribe_url = "http://script.smart21.it/chat21/dev/unsubscription/unsubscribe.php?user_id=" + recipient + "&app_id=" + tenant;
-        var unsubscribe_url = "http://script.smart21.it/chat21/unsubscription/unsubscribe.php?user_id=" + recipient + "&app_id=" + tenant;
+        // var unsubscribe_url = "http://script.chat21.org/chat21/dev/unsubscription/unsubscribe.php?user_id=" + recipient + "&app_id=" + tenant;
+        var unsubscribe_url = "http://script.chat21.org/chat21/unsubscription/unsubscribe.php?user_id=" + recipient + "&app_id=" + tenant;
        
         console.log("sendWelcomeEmail: recipientEmail == " + recipientEmail);
   
