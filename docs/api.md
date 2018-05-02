@@ -239,3 +239,23 @@ Example:
        -H 'Authorization: Bearer [REDACTED_JWT]' \
         https://us-central1-chat-v2-dev.cloudfunctions.net/supportapi/tilechat/groups/support-group-L5xro2P81zHs7YA7-DX/
 ```
+
+## Subscribe/unsubscribe to receive emails
+
+```
+  curl -X POST \
+      -H 'Content-Type: application/json' \
+      -d '{"user_id": "<USER_ID>", "is_subscribed": "<IS_SUBSCRIBED>"}' \
+      https://us-central1-<project-id>.cloudfunctions.net/api/<APP_ID>/users/<USER_ID>/settings/email?token=[REDACTED_TOKEN],
+```
+
+Example:
+
+```
+  curl -X POST \
+      -H 'Content-Type: application/json' \
+      -d '{"user_id": "u2K7nLo2dTZEOYYTykrufN6BDF92", "is_subscribed": "true"}' \
+      https://us-central1-chat-v2-dev.cloudfunctions.net/api/tilechat/users/u2K7nLo2dTZEOYYTykrufN6BDF92/settings/email?token=[REDACTED_TOKEN],
+```
+
+
