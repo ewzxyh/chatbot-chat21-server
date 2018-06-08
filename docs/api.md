@@ -293,7 +293,7 @@ Change my first and lastname:
       -H 'Content-Type: application/json' \
       -H "Authorization: Bearer <FIREBASE_ID_TOKEN>" \
       -d '{"firstname": "<FIRSTNAME>", "lastname": "<LASTNAME>"}' \
-      https://us-central1-<FIREBASE_PROJECT_ID>.cloudfunctions.net/api/<APP_ID>/contacts
+      https://us-central1-<FIREBASE_PROJECT_ID>.cloudfunctions.net/api/<APP_ID>/contacts/me
 ```
 
 
@@ -313,7 +313,7 @@ Example:
        -H 'Content-Type: application/json' \
        -H 'Authorization: Bearer [REDACTED_JWT]' \
         -d '{"firstname": "firstname", "lastname": "lastname"}' \
-    https://us-central1-chat-v2-dev.cloudfunctions.net/api/tilechat/contacts
+    https://us-central1-chat-v2-dev.cloudfunctions.net/api/tilechat/contacts/me
 ```
 
 
