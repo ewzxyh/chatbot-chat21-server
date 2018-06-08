@@ -283,16 +283,16 @@ Example:
 ```
 
 
-## Update my Contact Information
+## Update my FirstName and Last Name
 
-Update my contact information:
+Change my first and lastname:
 
 ```
 
   curl -X PUT \
       -H 'Content-Type: application/json' \
       -H "Authorization: Bearer <FIREBASE_ID_TOKEN>" \
-      -d '{"firstname": "<FIRSTNAME>", "lastname": "<LASTNAME>","email": "<EMAIL>"}' \
+      -d '{"firstname": "<FIRSTNAME>", "lastname": "<LASTNAME>"}' \
       https://us-central1-<FIREBASE_PROJECT_ID>.cloudfunctions.net/api/<APP_ID>/contacts
 ```
 
@@ -301,7 +301,6 @@ Where :
 - <FIREBASE_ID_TOKEN> : is a JWT token generated using JWT Authentication Method
 - <FIRSTNAME>: it's the firstname of the contact
 - <LASTNAME>: it's the lastname of the contact
-- <EMAIL>: it's the contact email
 - <FIREBASE_PROJECT_ID>: it's the Firebase project id. Find it on Firebase Console
 - <APP_ID>: It's the appid usend on multitenant environment. Use  "default" as default value
 
@@ -313,7 +312,7 @@ Example:
    curl -v -X PUT \
        -H 'Content-Type: application/json' \
        -H 'Authorization: Bearer [REDACTED_JWT]' \
-        -d '{"firstname": "firstname", "lastname": "lastname","email": "email"}' \
+        -d '{"firstname": "firstname", "lastname": "lastname"}' \
     https://us-central1-chat-v2-dev.cloudfunctions.net/api/tilechat/contacts
 ```
 
