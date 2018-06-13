@@ -204,7 +204,7 @@ Where :
 - <FIREBASE_ID_TOKEN> : is a JWT token generated using JWT Authentication Method
 - <FIREBASE_PROJECT_ID>: it's the Firebase project id. Find it on Firebase Console
 - <APP_ID>: It's the appid usend on multitenant environment. Use  "default" as default value
-- <MEMBER_ID>: it's the recipient id
+- <RECIPIENT_ID>: it's the recipient id
 - <MESSAGE_ID>: it's the message id
 
 Example:
@@ -233,7 +233,7 @@ Where :
 - <FIREBASE_ID_TOKEN> : is a JWT token generated using JWT Authentication Method
 - <FIREBASE_PROJECT_ID>: it's the Firebase project id. Find it on Firebase Console
 - <APP_ID>: It's the appid usend on multitenant environment. Use  "default" as default value
-- <MEMBER_ID>: it's the recipient id
+- <RECIPIENT_ID>: it's the recipient id
 - <MESSAGE_ID>: it's the message id
 
 
@@ -247,6 +247,34 @@ Example:
 
 
 ```
+
+
+## Delete a conversation
+
+Delete a conversation from the personale timeline specified by a RECIPIENT_ID
+
+```
+    curl  -X DELETE \
+       -H 'Content-Type: application/json' \
+       -H "Authorization: Bearer <FIREBASE_ID_TOKEN>" \
+       https://us-central1-<FIREBASE_PROJECT_ID>.cloudfunctions.net/api/<APP_ID>/conversations/<RECIPIENT_ID>
+```
+
+Where :
+- <FIREBASE_ID_TOKEN> : is a JWT token generated using JWT Authentication Method
+- <FIREBASE_PROJECT_ID>: it's the Firebase project id. Find it on Firebase Console
+- <APP_ID>: It's the appid usend on multitenant environment. Use  "default" as default value
+- <RECIPIENT_ID>: it's the recipient id
+
+Example:
+
+```
+    curl -X DELETE \
+      -H 'Content-Type: application/json' \
+       -H 'Authorization: Bearer [REDACTED_JWT]' \
+        https://us-central1-chat-v2-dev.cloudfunctions.net/api/tilechat/conversations/y4QN01LIgGPGnoV6ql07hwPAQg23/
+```
+
 
 ## Create a Contact
 
