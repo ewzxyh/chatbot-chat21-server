@@ -269,7 +269,7 @@ Where :
 Example:
 
 ```
-    curl -X DELETE \
+    curl -v -X DELETE \
       -H 'Content-Type: application/json' \
        -H 'Authorization: Bearer [REDACTED_JWT]' \
         https://us-central1-chat-v2-dev.cloudfunctions.net/api/tilechat/conversations/y4QN01LIgGPGnoV6ql07hwPAQg23/
