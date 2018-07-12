@@ -45,7 +45,7 @@ You can send a message making a POST call to the endpoint :
       -H 'Content-Type: application/json' \
       -H "Authorization: Bearer <FIREBASE_ID_TOKEN>" \
        -d '{"sender_fullname": "<SENDER_FULLNAME>", "recipient_id": "<ID>", "recipient_fullname":"<RECIPIENT_FULLNAME>","text":"<MESSAGE_TEXT>"}' \
-      https://us-central1-<FIREBASE_PROJECT_ID>.cloudfunctions.net/api/<APP_ID>/messages
+      'https://us-central1-<FIREBASE_PROJECT_ID>.cloudfunctions.net/api/<APP_ID>/messages'
 ```
 Where :
 - <FIREBASE_ID_TOKEN> : is a JWT token generated using JWT Authentication Method
@@ -62,7 +62,7 @@ Example. Send a new message :
        -H 'Content-Type: application/json' \
        -H 'Authorization: Bearer [REDACTED_JWT]' \
        -d '{"sender_fullname": "Andrea Leo", "recipient_id": "U4HL3GWjBsd8zLX4Vva0s7W2FN92", "recipient_fullname":"Andrea Leo","text":"hello from API"}' \
-       https://us-central1-chat-v2-dev.cloudfunctions.net/api/tilechat/messages
+       'https://us-central1-chat-v2-dev.cloudfunctions.net/api/tilechat/messages'
 ```
 
 
@@ -77,7 +77,7 @@ Create a chat user's group making the following POST call :
       -H 'Content-Type: application/json' \
       -H "Authorization: Bearer <FIREBASE_ID_TOKEN>" \
       -d '{"group_name": "<GROUP_NAME>", "group_members": {"<MEMBER_ID>":1}}' \
-      https://us-central1-<FIREBASE_PROJECT_ID>.cloudfunctions.net/api/<APP_ID>/groups
+      'https://us-central1-<FIREBASE_PROJECT_ID>.cloudfunctions.net/api/<APP_ID>/groups'
 ```
 
 Where :
@@ -93,7 +93,7 @@ Example:
    curl -v -X POST \
        -H 'Content-Type: application/json' \
        -H 'Authorization: Bearer [REDACTED_JWT]' \
-       -d '{"group_name": "TestGroup1", "group_members": {"y4QN01LIgGPGnoV6ql07hwPAQg23":1}}' https://us-central1-chat-v2-dev.cloudfunctions.net/api/tilechat/groups
+       -d '{"group_name": "TestGroup1", "group_members": {"y4QN01LIgGPGnoV6ql07hwPAQg23":1}}' 'https://us-central1-chat-v2-dev.cloudfunctions.net/api/tilechat/groups'
 ```
 
 
@@ -355,7 +355,7 @@ Example:
   curl -X POST \
       -H 'Content-Type: application/json' \
       -H "Authorization: Bearer <FIREBASE_ID_TOKEN>" \
-       -d '{"sender_fullname": "<FULLNAME>", "request_id": "<ID_REQUEST>","text":"helo from API","projectid":"<Project_id>"}' \
+       -d '{"sender_fullname": "<FULLNAME>","text":"helo from API","projectid":"<Project_id>"}' \
       https://us-central1-<project-id>.cloudfunctions.net/supportapi/<APP_ID>/requests
 ```
 
@@ -363,7 +363,7 @@ Example:
 ```
    curl -X POST \
        -H 'Content-Type: application/json' \
-       -d '{"sender_fullname": "Andrea Leo", "request_id": "redacted@example.invalid-Re: subject", "text":"hello from API","projectid":"5ab0f32757066e0014bfd718"}' \
+       -d '{"sender_fullname": "Andrea Leo", "text":"hello from API","projectid":"5ab0f32757066e0014bfd718"}' \
        'https://us-central1-chat-v2-dev.cloudfunctions.net/supportapi/tilechat/requests?token=[REDACTED_TOKEN],'
 ```
 
