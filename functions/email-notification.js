@@ -137,9 +137,6 @@ function sendNewMessageNotificationEmail(sender_fullname, recipient, recipient_f
         var formattedMessageTimestamp = formatTimestamp(messageTimestamp);
         // DEBUG console.log("formattedMessageTimestamp : " + formattedMessageTimestamp);
   
-        // const mailingList = `${recipientEmail}, redacted@example.invalid, redacted@example.invalid, redacted@example.invalid`; // list of receivers
-        // const mailingList = `${recipientEmail}`; // list of receivers
-        
         // var unsubscribe_url = "http://script.chat21.org/chat21/dev/unsubscription/unsubscribe.php?user_id=" + recipient + "&app_id=" + tenant;
         var unsubscribe_url = "http://script.chat21.org/chat21/unsubscription/unsubscribe.php?user_id=" + recipient + "&app_id=" + tenant;
        
@@ -149,19 +146,10 @@ function sendNewMessageNotificationEmail(sender_fullname, recipient, recipient_f
           console.log("recipientEmail is null");
           return 0;
         }
-        /*
-        const mailOptions = {
-          from: `${tenant} <redacted@example.invalid>`,
-          to: email
-        };
-        // The user subscribed to the newsletter.
-        mailOptions.subject = `New message from : ${sender}`;
-        mailOptions.text = `${messageText}`;
-        */
+     
   
         // setup email data with unicode symbols
         let mailOptions = {
-            // from: `${tenant} <redacted@example.invalid>`, // sender address
           from: `${tenant} <${functions.config().email.from}>`, // sender address
            
             to: recipientEmail, // list of receivers,
@@ -318,14 +306,7 @@ function sendNewMessageNotificationEmail(sender_fullname, recipient, recipient_f
         };
 
         if (functions.config().email && functions.config().email.enabled) {
-            //gmailEmail = encodeURIComponent(functions.config().email.email);
-            //gmailPassword = REDACTED_SECRET(functions.config().gmail.password);
-          //const mailTransport = nodemailer.createTransport(`smtps://${gmailEmail}:${gmailPassword}@smtp.gmail.com`);
-          // ################ END EMAIL ################ //  
-      
-          //const mailTransport = nodemailer.createTransport(`smtp://redacted@example.invalid:redacted@example.invalid`);
-         
-
+        
           if (!mailTransport) {
             throw "mailTransport is not defined";
           }
