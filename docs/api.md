@@ -57,7 +57,7 @@ Where :
 - <FIREBASE_PROJECT_ID>: it's the Firebase project id. Find it on Firebase Console
 - <APP_ID>: It's the appid usend on multitenant environment. Use  "default" as default value
 
-Example. Send a new message : 
+Example. Send a direct message to recipient id U4HL3GWjBsd8zLX4Vva0s7W2FN92 : 
 
 ```
    curl -X POST \
@@ -67,7 +67,15 @@ Example. Send a new message :
        'https://us-central1-chat-v2-dev.cloudfunctions.net/api/tilechat/messages'
 ```
 
+Example. Send a group message : 
 
+```
+   curl -X POST \
+       -H 'Content-Type: application/json' \
+       -H 'Authorization: Bearer [REDACTED_JWT]' \
+       -d '{"sender_fullname": "Andrea Leo", "recipient_id": "-LKQQxIY4DDyG17FDiOM", "recipient_fullname":"Test group","text":"hello group from API"}' \
+       'https://us-central1-chat-v2-dev.cloudfunctions.net/api/tilechat/messages'
+```
 
 ## Create a Group
 
