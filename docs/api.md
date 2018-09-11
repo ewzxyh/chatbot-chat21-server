@@ -356,6 +356,63 @@ Example:
 ```
 
 
+## Upload photo profile
+
+Upload my photo profile
+
+```
+
+  curl -X PUT \
+      -H 'Content-Type: application/json' \
+      -H "Authorization: Bearer <FIREBASE_ID_TOKEN>" \
+      https://us-central1-<FIREBASE_PROJECT_ID>.cloudfunctions.net/api/<APP_ID>/contacts/me/photo
+```
+
+
+Where :
+- <FIREBASE_ID_TOKEN> : is a JWT token generated using JWT Authentication Method
+- <FIREBASE_PROJECT_ID>: it's the Firebase project id. Find it on Firebase Console
+- <APP_ID>: It's the appid usend on multitenant environment. Use  "default" as default value
+
+
+Example:
+
+```
+   curl -v -X PUT \
+       -H 'Authorization: Bearer [REDACTED_JWT]' \
+       -F "image=@/Users/andrealeo/Downloads/a.jpg" \
+    https://us-central1-chat-v2-dev.cloudfunctions.net/api/tilechat/contacts/me/photo
+```
+
+
+## Delete photo profile
+
+Delete my photo profile
+
+```
+
+  curl -X DELETE \
+      -H 'Content-Type: application/json' \
+      -H "Authorization: Bearer <FIREBASE_ID_TOKEN>" \
+      https://us-central1-<FIREBASE_PROJECT_ID>.cloudfunctions.net/api/<APP_ID>/contacts/me/photo
+```
+
+
+Where :
+- <FIREBASE_ID_TOKEN> : is a JWT token generated using JWT Authentication Method
+- <FIREBASE_PROJECT_ID>: it's the Firebase project id. Find it on Firebase Console
+- <APP_ID>: It's the appid usend on multitenant environment. Use  "default" as default value
+
+
+Example:
+
+```
+   curl -v -X DELETE \
+       -H 'Content-Type: application/json' \
+       -H 'Authorization: Bearer [REDACTED_JWT]' \
+    https://us-central1-chat-v2-dev.cloudfunctions.net/api/tilechat/contacts/me/photo
+```
+
 
 # REST API for Support
 
@@ -375,6 +432,24 @@ Example:
        -H 'Content-Type: application/json' \
        -d '{"sender_fullname": "Andrea Leo", "text":"hello from API","projectid":"5ab0f32757066e0014bfd718"}' \
        'https://us-central1-chat-v2-dev.cloudfunctions.net/supportapi/tilechat/requests?token=[REDACTED_TOKEN],'
+```
+
+
+
+## Rate the request
+
+```
+  curl -X PUT \
+      -H 'Content-Type: application/json' \
+      -H "Authorization: Bearer <FIREBASE_ID_TOKEN>" \
+      https://us-central1-<project-id>.cloudfunctions.net/supportapi/<APP_ID>/requests/<REQUEST_ID>/rate?rating=2&rating_message=ciao
+```
+
+Example: 
+```
+   curl -X PUT \
+       -H 'Content-Type: application/json' \
+       'https://us-central1-chat-v2-dev.cloudfunctions.net/supportapi/tilechat/requests/support-group-LM879tEdviVwDkNmo94/rate?token=[REDACTED_TOKEN],&rating=2&rating_message=ciao'
 ```
 
 ## Close Support group
