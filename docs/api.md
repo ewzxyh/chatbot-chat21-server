@@ -95,7 +95,7 @@ Example. Send a message with PDF link to recipient id U4HL3GWjBsd8zLX4Vva0s7W2FN
 curl -X POST \
        -H 'Content-Type: application/json' \
        -H 'Authorization: Bearer [REDACTED_JWT]' \
-       -d '{"sender_fullname": "Andrea Leo", "recipient_id": "U4HL3GWjBsd8zLX4Vva0s7W2FN92", "recipient_fullname":"Andrea Leo","text":"File: https://www.unipg.it/files/pagine/410/4-PDF-A.pdf", "type":"text" }' \
+       -d '{"sender_fullname": "Andrea Leo", "recipient_id": "U4HL3GWjBsd8zLX4Vva0s7W2FN92", "recipient_fullname":"Andrea Leo","text":"https://www.unipg.it/files/pagine/410/4-PDF-A.pdf", "type":"text" }' \
        'https://us-central1-chat-v2-dev.cloudfunctions.net/api/tilechat/messages'
 ```  
   
