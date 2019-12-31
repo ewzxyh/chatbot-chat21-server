@@ -90,7 +90,15 @@ Example. Send an image to recipient id U4HL3GWjBsd8zLX4Vva0s7W2FN92 :
        -d '{"sender_fullname": "Andrea Leo", "recipient_id": "U4HL3GWjBsd8zLX4Vva0s7W2FN92", "recipient_fullname":"Andrea Leo","text":"alt text", "type":"image", "metadata": { "src": "https://www.tiledesk.com/wp-content/uploads/2018/03/tiledesk-logo.png", "width": 200, "height": 200 } }' \
        'https://us-central1-chat-v2-dev.cloudfunctions.net/api/tilechat/messages'
 ```
-
+Example. Send a message with PDF link to recipient id U4HL3GWjBsd8zLX4Vva0s7W2FN92 : 
+```
+curl -X POST \
+       -H 'Content-Type: application/json' \
+       -H 'Authorization: Bearer [REDACTED_JWT]' \
+       -d '{"sender_fullname": "Andrea Leo", "recipient_id": "U4HL3GWjBsd8zLX4Vva0s7W2FN92", "recipient_fullname":"Andrea Leo","text":"File: https://www.unipg.it/files/pagine/410/4-PDF-A.pdf", "type":"text" }' \
+       'https://us-central1-chat-v2-dev.cloudfunctions.net/api/tilechat/messages'
+```  
+  
 ### Message attributes
 With attributes you can add custom attribute to the message as described below but you can also control internal behaviors:
 - disable push notification for each message with  attributes = {"sendnotification":false}
